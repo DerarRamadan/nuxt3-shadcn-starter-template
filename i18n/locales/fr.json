@@ -1,0 +1,77 @@
+{
+  "clubName": "Club Al-Olympi",
+  "header": {
+    "news": "Actualités",
+    "matches": "Matchs",
+    "team": "Équipe",
+    "history": "Histoire",
+    "media": "Médias",
+    "sponsors": "Sponsors",
+    "contact": "Contact",
+    "selectLanguage": "Choisir la langue",
+    "search": "Rechercher",
+    "toggleMenu": "Basculer le menu",
+    "closeMenu": "Fermer le menu",
+    "home": "Accueil"
+  },
+  "home": {
+    "hero": {
+      "title": "Al-Olympi",
+      "subtitle": "LE CŒUR DU FOOTBALL LIBYEN",
+      "buttonNews": "Dernières Actus",
+      "buttonMatches": "Voir les Matchs"
+    },
+    "latestUpdates": {
+      "title": "Dernières Actualités",
+      "readMore": "Lire la suite →",
+      "viewAll": "Toutes les Actus",
+      "sample1": {
+        "title": "VICTOIRE DANS LE DERBY ! Le Club Triomphe !",
+        "summary": "Revivez les moments électrisants de la victoire cruciale contre nos rivaux."
+      },
+      "sample2": {
+        "title": "RECRUE STAR DÉVOILÉE !",
+        "summary": "Découvrez le nouveau pilier qui rejoint l'équipe cette saison."
+      },
+      "sample3": {
+        "title": "CHAMPIONS DE L'ACADÉMIE ! L'Équipe Jeune Soulève le Trophée",
+        "summary": "L'avenir est prometteur ! Nos stars de l'académie montrent leur talent."
+      }
+    },
+    "upcomingMatches": {
+      "title": "Matchs à Venir",
+      "details": "Détails",
+      "viewAll": "Calendrier Complet"
+    },
+    "playerSpotlight": {
+      "title": "Joueur à la Une",
+      "goals": "Buts",
+      "assists": "Passes D.",
+      "rating": "Note",
+      "viewTeam": "Voir l'Équipe"
+    },
+    "clubLegacy": {
+      "title": "Héritage du Club",
+      "description": "Forgé dans la passion, bâti sur les triomphes. Depuis {year}, le Club Al-Olympi incarne l'esprit du football libyen. Explorez les moments qui définissent notre histoire.",
+      "button": "Découvrez Notre Histoire"
+    },
+    "mediaHub": {
+      "title": "Galerie Média",
+      "viewAll": "Explorer la Galerie"
+    },
+    "sponsors": {
+      "title": "Fièrement Soutenu Par",
+      "button": "Devenir Sponsor"
+    }
+  },
+  "footer": {
+    "quickLinks": "Explorer",
+    "club": "Club",
+    "contactUs": "Contactez-nous",
+    "followUs": "Suivez-nous",
+    "rights": "Tous droits réservés.",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation",
+    "careers": "Carrières"
+  }
+}

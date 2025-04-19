@@ -1,78 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
- 
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
- 
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
- 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
- 
-    --primary: 220.9 39.3% 11%;
-    --primary-foreground: 210 20% 98%;
- 
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
- 
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
- 
-    --ring: 224 71.4% 4.1%;
- 
-    --radius: 0.5rem;
+    --background: 0 0% 96%; /* Light Grey #f4f4f4 */
+    --foreground: 0 0% 20%; /* Dark Grey #333333 */
+
+    --muted: 220 14.3% 95.9%; /* Default Shadcn Muted */
+    --muted-foreground: 220 8.9% 46.1%; /* Default Shadcn Muted Foreground */
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 0 0% 20%; /* Dark Grey */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 0 0% 20%; /* Dark Grey */
+
+    --border: 220 13% 91%; /* Default Shadcn Border */
+    --input: 220 13% 91%; /* Default Shadcn Input */
+
+    --primary: 212 100% 31%; /* Primary Blue #00439e */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 211 100% 18%; /* Deep Navy #002b5c */
+    --secondary-foreground: 0 0% 100%; /* White */
+
+    --accent: 210 100% 40%; /* Accent Blue #0066cc */
+    --accent-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 84.2% 60.2%; /* Default Shadcn Red */
+    --destructive-foreground: 210 20% 98%; /* Default Shadcn Destructive FG */
+
+    --ring: 210 100% 40%; /* Accent Blue #0066cc */
+
+    --radius: 0.75rem; /* Increased from 0.5rem */
   }
- 
+
   .dark {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
- 
+
     --muted: 215 27.9% 16.9%;
     --muted-foreground: 217.9 10.6% 64.9%;
- 
+
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 20% 98%;
- 
+
     --card: 224 71.4% 4.1%;
     --card-foreground: 210 20% 98%;
- 
+
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
- 
+
     --primary: 210 20% 98%;
     --primary-foreground: 220.9 39.3% 11%;
- 
+
     --secondary: 215 27.9% 16.9%;
     --secondary-foreground: 210 20% 98%;
- 
+
     --accent: 215 27.9% 16.9%;
     --accent-foreground: 210 20% 98%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
- 
+
     --ring: 216 12.2% 83.9%;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+    font-family: theme('fontFamily.sans');
+  }
+  h1, h2, h3, h4, h5, h6 {
+     font-family: theme('fontFamily.heading');
   }
 }

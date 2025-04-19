@@ -1,4 +1,5 @@
 import animate from "tailwindcss-animate"
+import { fontFamily } from "tailwindcss/defaultTheme"
 
 /** @type {import('tailwindcss').Config} */
 export const darkMode = ["class"]
@@ -39,6 +40,14 @@ export const theme = {
         DEFAULT: "hsl(var(--accent))",
         foreground: "hsl(var(--accent-foreground))",
       },
+      'accent-orange': {
+         DEFAULT: '#ff7f00',
+         foreground: '#ffffff',
+      },
+      'accent-yellow': {
+         DEFAULT: '#ffd700',
+         foreground: '#333333',
+      },
       popover: {
         DEFAULT: "hsl(var(--popover))",
         foreground: "hsl(var(--popover-foreground))",
@@ -54,29 +63,44 @@ export const theme = {
       md: "calc(var(--radius) - 2px)",
       sm: "calc(var(--radius) - 4px)",
     },
+    fontFamily: {
+      sans: ["Roboto", ...fontFamily.sans],
+      heading: ["Montserrat", ...fontFamily.sans],
+    },
     keyframes: {
       "accordion-down": {
-        from: { height: 0 },
+        from: { height: '0' },
         to: { height: "var(--radix-accordion-content-height)" },
       },
       "accordion-up": {
         from: { height: "var(--radix-accordion-content-height)" },
-        to: { height: 0 },
+        to: { height: '0' },
       },
       "collapsible-down": {
-        from: { height: 0 },
+        from: { height: '0' },
         to: { height: 'var(--radix-collapsible-content-height)' },
       },
       "collapsible-up": {
         from: { height: 'var(--radix-collapsible-content-height)' },
-        to: { height: 0 },
+        to: { height: '0' },
       },
+       bounce: {
+         '0%, 100%': {
+           transform: 'translateY(-25%)',
+           animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)',
+         },
+         '50%': {
+           transform: 'translateY(0)',
+           animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
+         },
+       }
     },
     animation: {
       "accordion-down": "accordion-down 0.2s ease-out",
       "accordion-up": "accordion-up 0.2s ease-out",
       "collapsible-down": "collapsible-down 0.2s ease-in-out",
       "collapsible-up": "collapsible-up 0.2s ease-in-out",
+       bounce: 'bounce 1s infinite',
     },
   },
 }

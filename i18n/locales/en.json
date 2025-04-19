@@ -1,0 +1,77 @@
+{
+  "clubName": "Al-Olympi Club",
+  "header": {
+    "news": "News",
+    "matches": "Matches",
+    "team": "Team",
+    "history": "History",
+    "media": "Media",
+    "sponsors": "Sponsors",
+    "contact": "Contact",
+    "selectLanguage": "Select Language",
+    "search": "Search",
+    "toggleMenu": "Toggle Menu",
+    "closeMenu": "Close Menu",
+    "home": "Home"
+  },
+  "home": {
+    "hero": {
+      "title": "Al-Olympi",
+      "subtitle": "THE HEARTBEAT OF LIBYAN FOOTBALL",
+      "buttonNews": "Latest News",
+      "buttonMatches": "View Matches"
+    },
+    "latestUpdates": {
+      "title": "Latest Updates",
+      "readMore": "Read More →",
+      "viewAll": "View All News",
+      "sample1": {
+        "title": "DERBY DAY DELIGHT! Club Claims Victory!",
+        "summary": "Relive the electrifying moments from the crucial win against our rivals."
+      },
+      "sample2": {
+        "title": "STAR SIGNING UNVEILED!",
+        "summary": "Meet the new powerhouse joining the squad this season."
+      },
+      "sample3": {
+        "title": "ACADEMY CHAMPIONS! Youth Team Lifts Trophy",
+        "summary": "The future is bright! Our academy stars showcase their winning talent."
+      }
+    },
+    "upcomingMatches": {
+      "title": "Upcoming Matches",
+      "details": "Details",
+      "viewAll": "Full Fixture List"
+    },
+    "playerSpotlight": {
+      "title": "Player Spotlight",
+      "goals": "Goals",
+      "assists": "Assists",
+      "rating": "Rating",
+      "viewTeam": "View Full Team"
+    },
+    "clubLegacy": {
+      "title": "Club Legacy",
+      "description": "Forged in passion, built on triumphs. Since {year}, Al-Olympi Club embodies the spirit of Libyan football. Explore the moments that define our history.",
+      "button": "Discover Our Story"
+    },
+    "mediaHub": {
+      "title": "Media Hub",
+      "viewAll": "Explore Full Gallery"
+    },
+    "sponsors": {
+      "title": "Proudly Supported By",
+      "button": "Become a Sponsor"
+    }
+  },
+  "footer": {
+    "quickLinks": "Explore",
+    "club": "Club",
+    "contactUs": "Contact Us",
+    "followUs": "Connect",
+    "rights": "All Rights Reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "careers": "Careers"
+  }
+}

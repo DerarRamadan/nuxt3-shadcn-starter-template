@@ -64,6 +64,56 @@
       "button": "Devenir Sponsor"
     }
   },
+  "news": {
+    "pageTitle": "Centre d'Actualités",
+    "filters": {
+      "all": "Tout",
+      "firstteam": "Équipe Première",
+      "academy": "Académie",
+      "clubnews": "Actus du Club",
+      "transfers": "Transferts"
+    },
+    "categories": {
+      "firstteam": "Équipe Première",
+      "academy": "Académie",
+      "clubnews": "Actus du Club",
+      "transfers": "Transferts",
+      "uncategorized": "Non Catégorisé"
+    },
+    "readMore": "Lire la suite",
+    "sample1": {
+      "title": "Victoire Historique pour le Titre !",
+      "summary": "Une performance époustouflante assure le trophée de champion au club."
+    },
+    "sample2": {
+      "title": "Star de l'Académie Signe son Premier Contrat Pro",
+      "summary": "Jeune talent engage son avenir avec le club après une saison impressionnante."
+    },
+    "sample3": {
+      "title": "Le Club Annonce une Nouvelle Initiative Communautaire",
+      "summary": "Engager la jeunesse locale par le pouvoir du football."
+    },
+    "sample4": {
+      "title": "L'Entraîneur Préface le Match Crucial de Coupe",
+      "summary": "Écoutez les pensées du coach avant le prochain match à élimination directe."
+    },
+    "sample5": {
+      "title": "Mise à Jour Mercato : Arrivée d'un Joueur Clé",
+      "summary": "Renforcement de l'équipe avec une nouvelle signature significative."
+    },
+    "sample6": {
+      "title": "Dans les Coulisses : Action sur le Terrain d'Entraînement",
+      "summary": "Aperçu exclusif de la préparation de l'équipe pour le prochain match."
+    },
+    "default": {
+      "title": "Titre de l'Article d'Actualité",
+      "summary": "Résumé provisoire pour un article d'actualité."
+    }
+  },
+  "pagination": {
+    "previous": "Précédent",
+    "next": "Suivant"
+  },
   "footer": {
     "quickLinks": "Explorer",
     "club": "Club",

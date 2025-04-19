@@ -64,6 +64,56 @@
       "button": "Become a Sponsor"
     }
   },
+  "news": {
+    "pageTitle": "News Hub",
+    "filters": {
+      "all": "All",
+      "firstteam": "First Team",
+      "academy": "Academy",
+      "clubnews": "Club News",
+      "transfers": "Transfers"
+    },
+    "categories": {
+      "firstteam": "First Team",
+      "academy": "Academy",
+      "clubnews": "Club News",
+      "transfers": "Transfers",
+      "uncategorized": "Uncategorized"
+    },
+    "readMore": "Read More",
+    "sample1": {
+      "title": "Historic Win Seals League Title!",
+      "summary": "A stunning performance secures the championship trophy for the club."
+    },
+    "sample2": {
+      "title": "Academy Star Signs First Professional Contract",
+      "summary": "Young talent commits future to the club after impressive season."
+    },
+    "sample3": {
+      "title": "Club Announces New Community Initiative",
+      "summary": "Engaging local youth through the power of football."
+    },
+    "sample4": {
+      "title": "Manager Previews Crucial Cup Tie",
+      "summary": "Hear the gaffer's thoughts ahead of the upcoming knockout match."
+    },
+    "sample5": {
+      "title": "Transfer Window Update: Key Player Arrives",
+      "summary": "Strengthening the squad with a significant new signing."
+    },
+    "sample6": {
+      "title": "Behind the Scenes: Training Ground Action",
+      "summary": "Exclusive look at the team's preparation for the next game."
+    },
+    "default": {
+      "title": "News Article Title",
+      "summary": "Placeholder summary for a news article."
+    }
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next"
+  },
   "footer": {
     "quickLinks": "Explore",
     "club": "Club",

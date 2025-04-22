@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { Facebook, Twitter, Instagram, Youtube } from 'lucide-vue-next';
-// Correct imports from #imports provided by Nuxt and i18n module
 import { useI18n, useLocalePath } from '#imports';
 
 const { t } = useI18n();
-const localePath = useLocalePath(); // For generating links within the current locale
+const localePath = useLocalePath();
 const currentYear = new Date().getFullYear();
 </script>
 
@@ -16,7 +15,7 @@ const currentYear = new Date().getFullYear();
             <NuxtLink :to="localePath('/')" class="inline-block mb-4">
                 <img src="https://via.placeholder.com/200x60/00439e/ffffff?text=Club+Logo+Footer" alt="Club Logo" class="h-12 w-auto">
             </NuxtLink>
-            <p class="text-sm pe-4">{{ t('clubName') }} - {{ t('home.hero.subtitle') }}</p>
+            <p class="text-sm pe-4 rtl:pe-0 rtl:ps-4">{{ t('clubName') }} - {{ t('home.hero.subtitle') }}</p>
         </div>
 
         <div>
@@ -26,16 +25,19 @@ const currentYear = new Date().getFullYear();
             <li><NuxtLink :to="localePath('/matches')" class="hover:text-accent-yellow transition-colors text-sm">{{ $t('header.matches') }}</NuxtLink></li>
             <li><NuxtLink :to="localePath('/team')" class="hover:text-accent-yellow transition-colors text-sm">{{ $t('header.team') }}</NuxtLink></li>
             <li><NuxtLink :to="localePath('/history')" class="hover:text-accent-yellow transition-colors text-sm">{{ $t('header.history') }}</NuxtLink></li>
+             <li><NuxtLink :to="localePath('/gallery')" class="hover:text-accent-yellow transition-colors text-sm">{{ $t('header.media') }}</NuxtLink></li>
           </ul>
         </div>
 
          <div>
            <h4 class="font-semibold font-heading mb-4 text-base text-white uppercase tracking-wider">{{ $t('footer.club') }}</h4>
            <ul class="space-y-2">
-             <li><NuxtLink :to="localePath('/media')" class="hover:text-accent-yellow transition-colors text-sm">{{ $t('header.media') }}</NuxtLink></li>
+              <li><NuxtLink :to="localePath('/about')" class="hover:text-accent-yellow transition-colors text-sm">{{ $t('footer.about') }}</NuxtLink></li>
              <li><NuxtLink :to="localePath('/sponsors')" class="hover:text-accent-yellow transition-colors text-sm">{{ $t('header.sponsors') }}</NuxtLink></li>
              <li><NuxtLink :to="localePath('/contact')" class="hover:text-accent-yellow transition-colors text-sm">{{ $t('header.contact') }}</NuxtLink></li>
              <li><NuxtLink :to="localePath('/careers')" class="hover:text-accent-yellow transition-colors text-sm">{{ $t('footer.careers') }}</NuxtLink></li>
+              <li><NuxtLink :to="localePath('/stadium')" class="hover:text-accent-yellow transition-colors text-sm">{{ $t('footer.stadium') }}</NuxtLink></li>
+               <li><NuxtLink :to="localePath('/academy')" class="hover:text-accent-yellow transition-colors text-sm">{{ $t('footer.academy') }}</NuxtLink></li>
            </ul>
          </div>
 

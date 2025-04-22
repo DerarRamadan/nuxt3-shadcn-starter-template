@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import GlobalHeader from '~/components/global/Header.vue';
 import GlobalFooter from '~/components/global/Footer.vue';
-// Correct imports from #imports provided by Nuxt and i18n module
 import { useI18n, useLocalePath } from '#imports';
 
 const { t } = useI18n();
-const localePath = useLocalePath(); // For generating links within the current locale
+const localePath = useLocalePath();
 
 const sampleNews = ref([
   { id: 1, titleKey: 'home.latestUpdates.sample1.title', summaryKey: 'home.latestUpdates.sample1.summary', image: 'https://via.placeholder.com/600x400/00439e/ffffff?text=Dynamic+Goal+Celebration+Shot', link: '/news/1' },
@@ -34,9 +33,9 @@ const featuredPlayer = ref({
 const galleryItems = ref([
   { id: 1, src: 'https://via.placeholder.com/800x500/00439e/ffffff?text=Match+Action+1+-+Tackle', alt: 'Match Action 1' },
   { id: 2, src: 'https://via.placeholder.com/800x500/ff7f00/ffffff?text=Training+Drill', alt: 'Training Session' },
-  { id: 3, src: 'https://via.placeholder.com/800x500/0066cc/ffffff?text=Fans+Cheering+with+Flares', alt: 'Fan Celebration' },
-  { id: 4, src: 'https://via.placeholder.com/800x500/002b5c/ffffff?text=Close+Up+Player+Portrait', alt: 'Player Portrait' },
-  { id: 5, src: 'https://via.placeholder.com/800x500/ffd700/333333?text=Stadium+Aerial+View+Night', alt: 'Stadium View' },
+  { id: 3, src: 'https://via.placeholder.com/800x500/0066cc/ffffff?text=Fan+Celebration', alt: 'Fan Celebration' },
+  { id: 4, src: 'https://via.placeholder.com/800x500/002b5c/ffffff?text=Trophy+Lift', alt: 'Trophy Lift' },
+  { id: 5, src: 'https://via.placeholder.com/800x500/ffd700/333333?text=Community+Event', alt: 'Community Event' },
 ])
 
 const sponsors = ref([
@@ -57,7 +56,7 @@ onMounted(() => {
   });
 });
 
-const clubFoundationYear = 1947; // Example Year
+const clubFoundationYear = 1947;
 </script>
 
 <template>
@@ -65,7 +64,6 @@ const clubFoundationYear = 1947; // Example Year
     <GlobalHeader />
 
     <main>
-      <!-- Hero Section -->
       <section class="relative min-h-[80vh] md:min-h-screen flex items-center justify-center text-center overflow-hidden">
         <div class="absolute inset-0 z-0">
            <img src="https://via.placeholder.com/1920x1080/cccccc/000000?text=High-Energy+Stadium+Action+Shot+or+Crowd+Shot" alt="Hero background" class="w-full h-full object-cover object-center scale-110 blur-sm opacity-40">
@@ -100,13 +98,12 @@ const clubFoundationYear = 1947; // Example Year
          </div>
       </section>
 
-      <!-- Latest Updates -->
       <section class="py-20 lg:py-28 bg-gray-900">
         <div class="container mx-auto px-4">
           <h2 class="text-4xl md:text-5xl font-bold font-heading text-center mb-16 text-white uppercase tracking-wide">{{ $t('home.latestUpdates.title') }}</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <NuxtLink v-for="item in sampleNews" :key="item.id" :to="localePath(item.link)" class="block group bg-secondary rounded-2xl overflow-hidden shadow-xl hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-accent-orange">
-                <div class="relative aspect-w-16 aspect-h-9">
+             <NuxtLink v-for="item in sampleNews" :key="item.id" :to="localePath(`/news/${item.id}`)" class="block group bg-secondary rounded-2xl overflow-hidden shadow-xl hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-accent-orange">
+                <div class="relative aspect-video">
                     <img :src="item.image" :alt="t(item.titleKey)" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                 </div>
@@ -130,32 +127,30 @@ const clubFoundationYear = 1947; // Example Year
         </div>
       </section>
 
-      <!-- Upcoming Matches -->
       <section class="py-20 lg:py-28 bg-secondary">
         <div class="container mx-auto px-4">
           <h2 class="text-4xl md:text-5xl font-bold font-heading text-center mb-16 text-white uppercase tracking-wide">{{ $t('home.upcomingMatches.title') }}</h2>
           <div class="max-w-5xl mx-auto space-y-8">
              <div v-for="match in upcomingMatches" :key="match.id" class="bg-gray-800/50 p-6 rounded-2xl shadow-lg flex flex-col md:flex-row justify-between items-center border border-gray-700 hover:border-primary transition-colors duration-300">
                 <div class="flex items-center justify-center space-x-4 md:space-x-6 rtl:space-x-reverse mb-4 md:mb-0 w-full md:w-auto">
-                    <div class="text-end">
-                        <img :src="match.homeLogo" :alt="(match.homeTeamKey ? t(match.homeTeamKey) : match.homeTeam) + ' Logo'" class="h-12 w-12 md:h-16 md:w-16 mx-auto mb-1 rounded-full shadow-md">
+                    <div class="text-end rtl:text-start">
+                        <img :src="match.homeLogo" :alt="(match.homeTeamKey ? t(match.homeTeamKey) : match.homeTeam) + ' Logo'" class="h-12 w-12 md:h-16 md:w-16 mx-auto mb-1 rounded-full shadow-md bg-white p-1">
                         <span class="text-sm md:text-base font-semibold text-white block truncate">{{ match.homeTeamKey ? t(match.homeTeamKey) : match.homeTeam }}</span>
                     </div>
                     <span class="text-2xl md:text-3xl font-bold text-gray-400">vs</span>
-                    <div class="text-start">
-                         <img :src="match.awayLogo" :alt="(match.awayTeamKey ? t(match.awayTeamKey) : match.awayTeam) + ' Logo'" class="h-12 w-12 md:h-16 md:w-16 mx-auto mb-1 rounded-full shadow-md">
+                    <div class="text-start rtl:text-end">
+                         <img :src="match.awayLogo" :alt="(match.awayTeamKey ? t(match.awayTeamKey) : match.awayTeam) + ' Logo'" class="h-12 w-12 md:h-16 md:w-16 mx-auto mb-1 rounded-full shadow-md bg-white p-1">
                          <span class="text-sm md:text-base font-semibold text-white block truncate">{{ match.awayTeamKey ? t(match.awayTeamKey) : match.awayTeam }}</span>
                     </div>
                 </div>
-                <div class="text-center border-t border-b md:border-t-0 md:border-b-0 md:border-s md:border-e border-gray-700 px-4 md:px-8 py-4 md:py-0 my-4 md:my-0 w-full md:w-auto">
+                <div class="text-center border-t border-b md:border-t-0 md:border-b-0 md:border-s md:border-e rtl:md:border-s-0 rtl:md:border-e-0 rtl:md:border-e rtl:md:border-s border-gray-700 px-4 md:px-8 py-4 md:py-0 my-4 md:my-0 w-full md:w-auto">
                     <p class="text-lg md:text-xl font-bold text-accent-yellow uppercase">{{ match.date }}</p>
                     <p class="text-2xl md:text-3xl font-bold text-white">{{ match.time }}</p>
                     <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">{{ match.competition }}</p>
                 </div>
                 <div class="text-center w-full md:w-auto">
                     <p class="text-sm text-gray-300 mb-2">{{ match.venue }}</p>
-                    <!-- Assuming match detail page uses ID, adjust if needed -->
-                    <NuxtLink :to="localePath('/matches/' + match.id)" class="inline-block px-5 py-2 text-sm font-bold rounded-lg text-gray-900 bg-accent-yellow hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-accent-yellow transition-colors duration-300 uppercase">
+                    <NuxtLink :to="localePath(`/matches/${match.id}`)" class="inline-block px-5 py-2 text-sm font-bold rounded-lg text-gray-900 bg-accent-yellow hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-accent-yellow transition-colors duration-300 uppercase">
                         {{ $t('home.upcomingMatches.details') }}
                     </NuxtLink>
                 </div>
@@ -172,7 +167,6 @@ const clubFoundationYear = 1947; // Example Year
         </div>
       </section>
 
-       <!-- Player Spotlight -->
        <section class="relative py-20 lg:py-32 bg-gray-900 overflow-hidden">
           <div class="absolute inset-y-0 end-0 w-1/2 opacity-10">
               <img src="https://via.placeholder.com/800x1000/cccccc/000000?text=Subtle+Geometric+Pattern+or+Stadium+Lights+Effect" alt="background pattern" class="h-full w-full object-cover">
@@ -182,7 +176,7 @@ const clubFoundationYear = 1947; // Example Year
            <div class="max-w-lg mx-auto bg-gradient-to-br from-primary via-secondary to-gray-900 p-1 rounded-3xl shadow-2xl">
                <div class="bg-secondary rounded-2xl p-8 relative overflow-hidden">
                     <img :src="featuredPlayer.image" :alt="featuredPlayer.name" class="w-full h-auto rounded-xl mb-6 shadow-lg object-cover max-h-[400px]">
-                    <div class="absolute top-8 start-8 bg-black/50 p-3 rounded-lg backdrop-blur-sm">
+                    <div class="absolute top-8 start-8 rtl:start-auto rtl:end-8 bg-black/50 p-3 rounded-lg backdrop-blur-sm">
                         <span class="text-5xl font-bold font-heading text-accent-yellow">{{ featuredPlayer.number }}</span>
                     </div>
                     <h3 class="text-3xl font-extrabold font-heading mb-1 text-white uppercase tracking-tight">{{ featuredPlayer.name }}</h3>
@@ -206,11 +200,10 @@ const clubFoundationYear = 1947; // Example Year
          </div>
        </section>
 
-      <!-- Club Legacy -->
       <section class="py-20 lg:py-28 bg-secondary text-gray-200">
         <div class="container mx-auto px-4">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div class="md:pe-8">
+            <div class="md:pe-8 rtl:pe-0 rtl:ps-8">
               <h2 class="text-4xl md:text-5xl font-bold font-heading mb-6 text-white uppercase tracking-wide">{{ $t('home.clubLegacy.title') }}</h2>
               <p class="font-sans text-lg mb-8 leading-relaxed text-gray-300">
                 {{ $t('home.clubLegacy.description', { year: clubFoundationYear }) }}
@@ -229,14 +222,13 @@ const clubFoundationYear = 1947; // Example Year
         </div>
       </section>
 
-       <!-- Media Hub -->
        <section class="py-20 lg:py-28 bg-gray-900">
          <div class="container mx-auto px-4">
            <h2 class="text-4xl md:text-5xl font-bold font-heading text-center mb-16 text-white uppercase tracking-wide">{{ $t('home.mediaHub.title') }}</h2>
            <div class="relative">
-             <div class="flex space-x-8 rtl:space-x-reverse overflow-x-auto pb-6 scroll-smooth snap-x snap-mandatory -mx-4 px-4">
+             <div class="flex space-x-8 rtl:space-x-reverse overflow-x-auto pb-6 scroll-smooth snap-x snap-mandatory -mx-4 px-4 custom-scrollbar">
                 <div v-for="item in galleryItems" :key="item.id" class="flex-shrink-0 w-5/6 sm:w-2/3 md:w-1/2 lg:w-2/5 snap-center">
-                  <NuxtLink :to="localePath('/media')" class="block bg-secondary rounded-2xl overflow-hidden shadow-lg group aspect-video border-2 border-transparent hover:border-primary transition-all duration-300">
+                  <NuxtLink :to="localePath('/gallery')" class="block bg-secondary rounded-2xl overflow-hidden shadow-lg group aspect-video border-2 border-transparent hover:border-primary transition-all duration-300">
                       <img :src="item.src" :alt="item.alt" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                   </NuxtLink>
                 </div>
@@ -250,7 +242,7 @@ const clubFoundationYear = 1947; // Example Year
            </div>
             <div class="text-center mt-16">
                <NuxtLink
-                 :to="localePath('/media')"
+                 :to="localePath('/gallery')"
                  class="inline-flex items-center justify-center px-10 py-4 border-2 border-primary text-base font-bold rounded-xl text-primary-foreground bg-primary hover:bg-accent hover:border-accent focus:outline-none focus:ring-4 focus:ring-primary/50 transition-colors duration-300 uppercase"
                >
                  {{ $t('home.mediaHub.viewAll') }}
@@ -259,7 +251,6 @@ const clubFoundationYear = 1947; // Example Year
          </div>
        </section>
 
-      <!-- Sponsors -->
       <section class="py-20 lg:py-24 bg-gray-100">
         <div class="container mx-auto px-4">
           <h2 class="text-3xl md:text-4xl font-bold font-heading text-center mb-12 text-gray-800 uppercase tracking-wide">{{ $t('home.sponsors.title') }}</h2>
@@ -300,26 +291,24 @@ const clubFoundationYear = 1947; // Example Year
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
 }
-.aspect-w-16 { position: relative; padding-bottom: 56.25%; }
-.aspect-h-9 { position: relative; }
-.aspect-w-16 > *, .aspect-h-9 > * { position: absolute; height: 100%; width: 100%; inset: 0px; object-fit: cover; }
+.aspect-video { position: relative; padding-bottom: 56.25%; }
+.aspect-video > * { position: absolute; height: 100%; width: 100%; inset: 0px; object-fit: cover; }
 .aspect-w-4 { position: relative; padding-bottom: 75%; }
 .aspect-h-3 { position: relative; }
 .aspect-w-4 > *, .aspect-h-3 > * { position: absolute; height: 100%; width: 100%; inset: 0px; object-fit: cover; }
-.aspect-video { position: relative; padding-bottom: 56.25%; }
-.aspect-video > * { position: absolute; height: 100%; width: 100%; inset: 0px; object-fit: cover; }
 
-.overflow-x-auto::-webkit-scrollbar {
-  height: 8px;
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 4px;
 }
-.overflow-x-auto::-webkit-scrollbar-track {
+.custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
-.overflow-x-auto::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--primary) / 0.6);
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: theme('colors.primary.DEFAULT / 0.6');
   border-radius: 10px;
 }
-.overflow-x-auto::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(var(--primary));
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+   background-color: theme('colors.primary.DEFAULT');
 }
 </style>

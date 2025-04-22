@@ -7,14 +7,16 @@ const { locale, locales, t } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 const currentLocalePath = useLocalePath();
 
-const availableLocales = computed(() => {
-  // Filter the locales provided by the module
-  // Ensure we treat it as an array and filter out the current locale
-  if (!Array.isArray(locales.value)) {
-    console.error("i18n: locales.value is not an array!", locales.value);
-    return [];
-  }
-  return locales.value.filter(i => i && i.code !== locale.value);
+interface I18nLocale {
+  code: string;
+  name: string;
+  iso?: string;
+  file?: string;
+  dir?: string;
+}
+
+const availableLocales = computed<I18nLocale[]>(() => {
+  return (locales.value as I18nLocale[]).filter(i => i.code !== locale.value && i.name);
 })
 
 const isLangDropdownOpen = ref(false)
@@ -22,7 +24,6 @@ const isMobileMenuOpen = ref(false)
 
 function toggleLangDropdown() {
   isLangDropdownOpen.value = !isLangDropdownOpen.value;
-  console.log("Toggled dropdown:", isLangDropdownOpen.value); // Debug log
 }
 
 function toggleMobileMenu() {
@@ -31,30 +32,12 @@ function toggleMobileMenu() {
 
 function closeMobileMenu() {
     isMobileMenuOpen.value = false;
-    isLangDropdownOpen.value = false; // Also close dropdown
+    isLangDropdownOpen.value = false;
 }
 
 function handleLocaleSwitch() {
-    // Close dropdown after a locale is clicked and selected
     isLangDropdownOpen.value = false;
-    console.log("Locale selected, closing dropdown"); // Debug log
 }
-
-// Optional: Close dropdown if clicking outside
-// function handleClickOutside(event: MouseEvent) {
-//   const dropdownButton = document.getElementById('language-button'); // Add an ID to your button if using this
-//   const dropdownContent = document.getElementById('language-dropdown'); // Add an ID to your dropdown div
-//   if (isLangDropdownOpen.value && dropdownButton && !dropdownButton.contains(event.target as Node) && dropdownContent && !dropdownContent.contains(event.target as Node)) {
-//     isLangDropdownOpen.value = false;
-//   }
-// }
-// onMounted(() => {
-//   document.addEventListener('click', handleClickOutside);
-// });
-// onUnmounted(() => {
-//  document.removeEventListener('click', handleClickOutside);
-// });
-
 </script>
 
 <template>
@@ -70,7 +53,7 @@ function handleLocaleSwitch() {
         <NuxtLink :to="currentLocalePath('/matches')" class="text-sm font-medium text-gray-300 hover:text-accent-yellow transition-colors uppercase tracking-wider">{{ $t('header.matches') }}</NuxtLink>
         <NuxtLink :to="currentLocalePath('/team')" class="text-sm font-medium text-gray-300 hover:text-accent-yellow transition-colors uppercase tracking-wider">{{ $t('header.team') }}</NuxtLink>
         <NuxtLink :to="currentLocalePath('/history')" class="text-sm font-medium text-gray-300 hover:text-accent-yellow transition-colors uppercase tracking-wider">{{ $t('header.history') }}</NuxtLink>
-        <NuxtLink :to="currentLocalePath('/media')" class="text-sm font-medium text-gray-300 hover:text-accent-yellow transition-colors uppercase tracking-wider">{{ $t('header.media') }}</NuxtLink>
+        <NuxtLink :to="currentLocalePath('/gallery')" class="text-sm font-medium text-gray-300 hover:text-accent-yellow transition-colors uppercase tracking-wider">{{ $t('header.media') }}</NuxtLink>
         <NuxtLink :to="currentLocalePath('/sponsors')" class="text-sm font-medium text-gray-300 hover:text-accent-yellow transition-colors uppercase tracking-wider">{{ $t('header.sponsors') }}</NuxtLink>
         <NuxtLink :to="currentLocalePath('/contact')" class="text-sm font-medium text-gray-300 hover:text-accent-yellow transition-colors uppercase tracking-wider">{{ $t('header.contact') }}</NuxtLink>
       </nav>
@@ -166,7 +149,7 @@ function handleLocaleSwitch() {
                    <NuxtLink :to="currentLocalePath('/matches')" @click="closeMobileMenu" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:text-white hover:bg-primary transition-colors uppercase tracking-wider">{{ $t('header.matches') }}</NuxtLink>
                    <NuxtLink :to="currentLocalePath('/team')" @click="closeMobileMenu" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:text-white hover:bg-primary transition-colors uppercase tracking-wider">{{ $t('header.team') }}</NuxtLink>
                    <NuxtLink :to="currentLocalePath('/history')" @click="closeMobileMenu" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:text-white hover:bg-primary transition-colors uppercase tracking-wider">{{ $t('header.history') }}</NuxtLink>
-                   <NuxtLink :to="currentLocalePath('/media')" @click="closeMobileMenu" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:text-white hover:bg-primary transition-colors uppercase tracking-wider">{{ $t('header.media') }}</NuxtLink>
+                   <NuxtLink :to="currentLocalePath('/gallery')" @click="closeMobileMenu" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:text-white hover:bg-primary transition-colors uppercase tracking-wider">{{ $t('header.media') }}</NuxtLink>
                    <NuxtLink :to="currentLocalePath('/sponsors')" @click="closeMobileMenu" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:text-white hover:bg-primary transition-colors uppercase tracking-wider">{{ $t('header.sponsors') }}</NuxtLink>
                    <NuxtLink :to="currentLocalePath('/contact')" @click="closeMobileMenu" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:text-white hover:bg-primary transition-colors uppercase tracking-wider">{{ $t('header.contact') }}</NuxtLink>
                 </nav>

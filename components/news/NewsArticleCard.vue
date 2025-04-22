@@ -6,14 +6,13 @@ const props = defineProps({
   article: {
     type: Object,
     required: true,
-    default: () => ({ // Provide a default structure for safety
-      id: 0,
+    default: () => ({
+      id: 0, // Expecting an ID now
       category: 'UNCATEGORIZED',
       titleKey: 'news.default.title',
       date: 'YYYY-MM-DD',
-      summaryKey: 'news.default.summary',
-      image: 'https://via.placeholder.com/600x400/cccccc/000000?text=Placeholder',
-      link: '/news'
+      image: 'https://via.placeholder.com/600x400/cccccc/000000?text=Placeholder'
+      // Removed link property as we construct it from ID
     })
   }
 });
@@ -21,13 +20,30 @@ const props = defineProps({
 const { t } = useI18n();
 const localePath = useLocalePath();
 
-// Computed property for the link to handle locale
-const articleLink = computed(() => localePath(props.article.link || '/news'));
-
-// Computed property for category translation key
-const categoryTranslationKey = computed(() => {
-  return `news.categories.${props.article.category?.toLowerCase().replace(' ', '') || 'uncategorized'}`;
+// Generate link using article ID
+const articleLink = computed(() => {
+    if (!props.article || props.article.id === 0) {
+        // Handle case where article or ID might be missing
+        return localePath('/news'); // Fallback to news index
+    }
+    const basePath = `/news/${props.article.id}`;
+    return localePath(basePath);
 });
+
+const categoryTranslationKey = computed(() => {
+  const categoryKey = props.article.category?.toLowerCase().replace(/[^a-z0-9]/gi, '') || 'uncategorized';
+  return `news.categories.${categoryKey}`;
+});
+
+const formatDate = (dateString: string) => {
+  if (!dateString || dateString === 'YYYY-MM-DD') return '';
+  try {
+    return new Intl.DateTimeFormat('en-CA', { year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(dateString));
+  } catch (e) {
+    console.error("Error formatting date:", e);
+    return dateString;
+  }
+};
 
 </script>
 
@@ -40,46 +56,45 @@ const categoryTranslationKey = computed(() => {
       <img
         :src="props.article.image"
         :alt="t(props.article.titleKey)"
-        class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+        class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
         loading="lazy"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <span v-if="props.article.category" class="absolute top-4 left-4 rtl:left-auto rtl:right-4 bg-primary text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full tracking-wider z-10">
+         {{ t(categoryTranslationKey) }}
+       </span>
     </div>
     <div class="p-5 md:p-6">
-      <span v-if="props.article.category" class="inline-block bg-primary text-white text-[11px] font-bold uppercase px-3 py-1 rounded-full mb-3 tracking-wide">
-        {{ t(categoryTranslationKey) }}
-      </span>
       <h3 class="text-lg md:text-xl font-bold font-heading mb-2 text-white group-hover:text-accent-yellow transition-colors duration-300 line-clamp-2 uppercase">
         {{ t(props.article.titleKey) }}
       </h3>
       <p v-if="props.article.date" class="text-xs text-gray-400 mb-3 font-medium">
-        {{ props.article.date }} <!-- Consider formatting date if needed -->
-      </p>
-      <p v-if="props.article.summaryKey" class="font-sans text-gray-300 mb-4 text-sm line-clamp-3 leading-relaxed">
-        {{ t(props.article.summaryKey) }}
+        {{ formatDate(props.article.date) }}
       </p>
       <span class="inline-flex items-center text-sm font-semibold text-accent-orange group-hover:text-accent-yellow transition-colors duration-300 mt-2">
         {{ $t('news.readMore') }}
-        <span class="ms-1 rtl:ms-0 rtl:me-1">&rarr;</span>
+        <span class="ms-1 rtl:ms-0 rtl:me-1">→</span>
       </span>
     </div>
   </NuxtLink>
 </template>
 
 <style scoped>
-.line-clamp-2,
-.line-clamp-3 {
+.line-clamp-2 {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    /* Handled by Tailwind line-clamp plugin if installed, otherwise keep */
-    -webkit-line-clamp: 2; /* Default */
+    -webkit-line-clamp: 2;
 }
-.line-clamp-3 {
-    -webkit-line-clamp: 3;
-}
-
 .aspect-video {
-    aspect-ratio: 16 / 9;
+    position: relative;
+    padding-bottom: 56.25%;
+}
+.aspect-video > img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0px;
+    object-fit: cover;
 }
 </style>

@@ -108,6 +108,29 @@
     "default": {
       "title": "News Article Title",
       "summary": "Placeholder summary for a news article."
+    },
+    "article": {
+      "published": "Published",
+      "by": "By",
+      "share": "Share",
+      "placeholder": {
+        "intro": "In a match pulsating with energy and watched by thousands, Al-Olympi delivered a performance for the ages, showcasing tactical brilliance and unwavering determination.",
+        "h2_tactics": "Tactical Masterclass Unfolds",
+        "p_tactics": "From the first whistle, the team's strategy was clear. Pressing high and utilizing quick transitions, they overwhelmed the opposition midfield. The manager's adjustments at halftime proved crucial, unlocking new avenues of attack in the second period.",
+        "h2_key_moments": "Key Moments That Defined the Game",
+        "p_key_moments": "The turning point arguably came in the 65th minute with a stunning save from our goalkeeper, denying a certain goal. This moment of inspiration lifted the team, leading to the decisive goal just minutes later – a beautifully worked team move finished with clinical precision.",
+        "imageAlt": "Player celebrating goal with teammates",
+        "imageCaption": "The team celebrates after scoring the winning goal.",
+        "quote_manager": "The lads gave everything today. The passion, the fight... this victory is for the fans who have supported us through thick and thin. We showed what Al-Olympi is all about.",
+        "list_title": "Looking Ahead:",
+        "listItem1": "Crucial away fixture next Saturday.",
+        "listItem2": "Focus shifts to maintaining momentum.",
+        "listItem3": "Injury updates expected later this week.",
+        "conclusion": "This victory is more than just three points; it's a statement of intent. With the team clicking and confidence high, the rest of the season promises excitement and potential glory for Al-Olympi."
+      }
+    },
+    "related": {
+      "title": "Related News"
     }
   },
   "pagination": {

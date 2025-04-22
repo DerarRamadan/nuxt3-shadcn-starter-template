@@ -108,6 +108,29 @@
     "default": {
       "title": "Titre de l'Article d'Actualité",
       "summary": "Résumé provisoire pour un article d'actualité."
+    },
+    "article": {
+      "published": "Publié",
+      "by": "Par",
+      "share": "Partager",
+      "placeholder": {
+        "intro": "Dans un match vibrant d'énergie et suivi par des milliers de personnes, Al-Olympi a livré une performance d'anthologie, faisant preuve d'une brillance tactique et d'une détermination sans faille.",
+        "h2_tactics": "Une Masterclass Tactique se Dévoile",
+        "p_tactics": "Dès le coup d'envoi, la stratégie de l'équipe était claire. En pressant haut et en utilisant des transitions rapides, ils ont submergé le milieu de terrain adverse. Les ajustements de l'entraîneur à la mi-temps se sont avérés cruciaux, ouvrant de nouvelles voies d'attaque en seconde période.",
+        "h2_key_moments": "Moments Clés Qui Ont Défini le Match",
+        "p_key_moments": "Le tournant est sans doute survenu à la 65e minute avec un arrêt spectaculaire de notre gardien, empêchant un but certain. Ce moment d'inspiration a galvanisé l'équipe, menant au but décisif quelques minutes plus tard – une action collective magnifiquement construite et conclue avec une précision clinique.",
+        "imageAlt": "Joueur célébrant un but avec ses coéquipiers",
+        "imageCaption": "L'équipe célèbre après avoir marqué le but de la victoire.",
+        "quote_manager": "Les gars ont tout donné aujourd'hui. La passion, le combat... cette victoire est pour les fans qui nous ont soutenus contre vents et marées. Nous avons montré ce qu'est Al-Olympi.",
+        "list_title": "Prochaines Échéances :",
+        "listItem1": "Match crucial à l'extérieur samedi prochain.",
+        "listItem2": "L'objectif est de maintenir la dynamique.",
+        "listItem3": "Des nouvelles des blessés attendues plus tard cette semaine.",
+        "conclusion": "Cette victoire est plus que trois points ; c'est une déclaration d'intention. Avec une équipe en osmose et une confiance élevée, le reste de la saison promet excitation et gloire potentielle pour Al-Olympi."
+      }
+    },
+    "related": {
+      "title": "Actualités Connexes"
     }
   },
   "pagination": {

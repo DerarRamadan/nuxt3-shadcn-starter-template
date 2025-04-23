@@ -10,10 +10,10 @@ const localePath = useLocalePath();
 
 // Placeholder History Data
 const timeline = ref([
-  { id: 'm1', yearKey: 'history.milestones.m1_year', titleKey: 'history.milestones.m1_title', descKey: 'history.milestones.m1_desc', image: 'https://via.placeholder.com/500x300/cccccc/000000?text=Founding+Era' },
-  { id: 'm2', yearKey: 'history.milestones.m2_year', titleKey: 'history.milestones.m2_title', descKey: 'history.milestones.m2_desc', image: 'https://via.placeholder.com/500x300/00439e/ffffff?text=First+Title+Win' },
-  { id: 'm3', yearKey: 'history.milestones.m3_year', titleKey: 'history.milestones.m3_title', descKey: 'history.milestones.m3_desc', image: 'https://via.placeholder.com/500x300/ff7f00/ffffff?text=Continental+Match' },
-  { id: 'm4', yearKey: 'history.milestones.m4_year', titleKey: 'history.milestones.m4_title', descKey: 'history.milestones.m4_desc', image: 'https://via.placeholder.com/500x300/00c853/ffffff?text=Stadium+Expansion' },
+  { id: 'm1', yearKey: 'history.milestones.m1_year', titleKey: 'history.milestones.m1_title', descKey: 'history.milestones.m1_desc', image: '/club-images/al_olympic_sc_2024_2025_squad_photo.jpg' },
+  { id: 'm2', yearKey: 'history.milestones.m2_year', titleKey: 'history.milestones.m2_title', descKey: 'history.milestones.m2_desc', image: '/club-images/al_olympic_sc_players_18_19_celebrating_training.jpg' },
+  { id: 'm3', yearKey: 'history.milestones.m3_year', titleKey: 'history.milestones.m3_title', descKey: 'history.milestones.m3_desc', image: '/club-images/al_olympic_sc_team_training_session_stadium_view.jpg' },
+  { id: 'm4', yearKey: 'history.milestones.m4_year', titleKey: 'history.milestones.m4_title', descKey: 'history.milestones.m4_desc', image: '/club-images/al_olympic_sc_team_training_session_stadium_view.jpg' },
 ]);
 
 const trophies = ref([
@@ -24,10 +24,10 @@ const trophies = ref([
 ]);
 
 const legends = ref([
-    { id: 'l1', name: 'Salim Omar', position: 'Forward (1980s)', image: 'https://via.placeholder.com/300x400/cccccc/000000?text=Legend+1' },
-    { id: 'l2', name: 'Khaled Hassan', position: 'Midfielder (1990s)', image: 'https://via.placeholder.com/300x400/cccccc/000000?text=Legend+2' },
-    { id: 'l3', name: 'Ali Mansour', position: 'Defender (2000s)', image: 'https://via.placeholder.com/300x400/cccccc/000000?text=Legend+3' },
-    { id: 'l4', name: 'Mustafa Ahmed', position: 'Goalkeeper (2010s)', image: 'https://via.placeholder.com/300x400/cccccc/000000?text=Legend+4' },
+    { id: 'l1', name: 'Salim Omar', position: 'Forward (1980s)', image: '/club-images/al_olympic_sc_player_portrait_1_blue_jacket.jpg' },
+    { id: 'l2', name: 'Khaled Hassan', position: 'Midfielder (1990s)', image: '/club-images/al_olympic_sc_player_portrait_black_2_blue_jacket.jpg' },
+    { id: 'l3', name: 'Ali Mansour', position: 'Defender (2000s)', image: '/club-images/al_olympic_sc_player_arriving_with_headphones.jpg' },
+    { id: 'l4', name: 'Mustafa Ahmed', position: 'Goalkeeper (2010s)', image: '/club-images/al_olympic_sc_player_24_posing_training_cone.jpg' },
 ]);
 
 
@@ -43,7 +43,7 @@ useHead({
     <main class="flex-grow">
        <section class="relative py-20 md:py-28 lg:py-32 overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img src="https://readdy.ai/api/search-image?query=vintage%20black%20and%20white%20football%20team%20photo%20overlayed%20with%20modern%20stadium%20lights%20effect%2C%20sepia%20tones&width=1920&height=1080&seq=hist1" alt="History background" class="w-full h-full object-cover object-center opacity-20 blur-sm">
+                <img src="/club-images/al_olympic_sc_2024_2025_squad_photo.jpg" alt="History background" class="w-full h-full object-cover object-center opacity-20 blur-sm">
                 <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-gray-900/80 to-black/95"></div>
             </div>
             <div class="container mx-auto px-4 text-center relative z-10">

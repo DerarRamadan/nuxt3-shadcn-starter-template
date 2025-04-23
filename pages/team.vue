@@ -157,7 +157,7 @@ useHead({
               </div>
             </div>
             <div class="md:w-1/2">
-              <img src="https://readdy.ai/api/search-image?query=professional%2520football%2520team%2520photo%2520on%2520pitch%252C%2520diverse%2520group%2520of%2520players%2520in%2520blue%2520kit%252C%2520stadium%2520background%252C%2520professional%2520sports%2520photography%252C%2520team%2520portrait%252C%2520high%2520quality%252C%2520no%2520text%2520or%2520watermarks&width=600&height=400&seq=123456&orientation=landscape" alt="Al-Olympi Club Team" class="w-full h-auto rounded-lg shadow-2xl">
+              <img src="/club-images/al_olympic_sc_team_huddle_rain_training.jpg" alt="Al-Olympi Club Team" class="w-full h-auto rounded-lg shadow-2xl">
             </div>
           </div>
         </div>

@@ -218,7 +218,7 @@ useHead({ title: `${t('gallery.pageTitle')} | ${t('clubName')}` });
               </div>
             </div>
             <div class="md:w-1/2">
-              <img src="https://readdy.ai/api/search-image?query=professional%2520football%2520team%2520celebration%2520with%2520trophy%252C%2520jubilant%2520players%2520in%2520blue%2520kit%2520celebrating%2520victory%252C%2520confetti%2520falling%252C%2520stadium%2520atmosphere%252C%2520fans%2520cheering%252C%2520emotional%2520moment%252C%2520high-quality%2520sports%2520photography%252C%2520dramatic%2520lighting&width=600&height=400&seq=123456&orientation=landscape" alt="Al-Olympi Club Gallery" class="w-full h-auto rounded-lg shadow-2xl">
+              <img src="/club-images/al_olympic_sc_team_training_session_stadium_view.jpg" alt="Al-Olympi Club Gallery" class="w-full h-auto rounded-lg shadow-2xl">
             </div>
           </div>
         </div>

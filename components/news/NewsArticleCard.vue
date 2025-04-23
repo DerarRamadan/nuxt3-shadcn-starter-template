@@ -60,7 +60,7 @@ const formatDate = (dateString: string) => {
         loading="lazy"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <span v-if="props.article.category" class="absolute top-4 left-4 rtl:left-auto rtl:right-4 bg-transparancy text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full tracking-wider z-10">
+      <span v-if="props.article.category" class="absolute top-4 start-4 rtl:start-auto rtl:end-2 bg-transparancy text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full tracking-wider z-10">
          {{ t(categoryTranslationKey) }}
        </span>
     </div>

@@ -44,7 +44,7 @@ const formattedTime = computed(() => {
     <div class="bg-gray-900 px-4 py-3 flex justify-between items-center border-b border-gray-700">
       <div class="flex items-center">
         <span class="match-status upcoming bg-primary text-white px-2 py-1 rounded text-xs font-semibold">{{ t('matches.status.upcoming') }}</span>
-        <span class="text-white ml-3 text-sm">{{ match.competition }}</span>
+        <span class="text-white ms-3 text-sm">{{ match.competition }}</span>
       </div>
       <span class="text-gray-400 text-sm">{{ formattedDate }}</span>
     </div>
@@ -66,21 +66,21 @@ const formattedTime = computed(() => {
         </div>
 
         <!-- Match Info & Actions -->
-        <div class="flex flex-col items-center md:items-end text-center md:text-right space-y-3 md:w-1/3">
+        <div class="flex flex-col items-center md:items-end text-center md:text-end space-y-3 md:w-1/3">
           <div class="flex items-center text-sm text-gray-300">
-            <Clock class="w-4 h-4 mr-2 text-primary" />
+            <Clock class="w-4 h-4 me-2 text-primary" />
             <span>{{ formattedTime }} ({{ t('matches.time.local') }})</span>
           </div>
           <div class="flex items-center text-sm text-gray-300">
-            <MapPin class="w-4 h-4 mr-2 text-primary" />
+            <MapPin class="w-4 h-4 me-2 text-primary" />
             <span>{{ match.venue }}</span>
           </div>
-          <div class="flex items-center space-x-3 mt-4">
+          <div class="flex items-center space-x-3 rtl:space-x-reverse mt-4">
             <NuxtLink :to="localePath(`/matches/${match.id}`)" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-button !rounded-button text-sm whitespace-nowrap transition-colors">
               {{ t('matches.actions.matchInfo') }}
             </NuxtLink>
             <button class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded-button !rounded-button text-sm whitespace-nowrap transition-colors flex items-center">
-              <Ticket class="w-4 h-4 mr-1" />
+              <Ticket class="w-4 h-4 me-1" />
               {{ t('matches.actions.buyTickets') }}
             </button>
           </div>

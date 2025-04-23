@@ -37,10 +37,10 @@ const formattedDate = computed(() => {
     <div class="bg-gray-900 px-4 py-3 flex justify-between items-center border-b border-gray-700">
       <div class="flex items-center">
         <span class="match-status finished bg-gray-600 text-white px-2 py-1 rounded text-xs font-semibold">{{ t('matches.status.finished') }}</span>
-        <span class="text-white ml-3 text-sm">{{ result.competition }}</span>
+        <span class="text-white ms-3 text-sm">{{ result.competition }}</span>
       </div>
       <span class="text-gray-400 text-sm flex items-center">
-        <CalendarDays class="w-4 h-4 mr-1.5" />
+        <CalendarDays class="w-4 h-4 me-1.5" />
         {{ formattedDate }}
       </span>
     </div>
@@ -60,13 +60,13 @@ const formattedDate = computed(() => {
         </div>
 
         <!-- Actions -->
-        <div class="flex items-center space-x-3 mt-4 md:mt-0">
+        <div class="flex items-center space-x-3 rtl:space-x-reverse mt-4 md:mt-0">
           <button class="bg-secondary hover:bg-secondary/90 text-white font-bold py-2 px-4 rounded-button !rounded-button text-sm whitespace-nowrap transition-colors flex items-center">
-            <Film class="w-4 h-4 mr-1" />
+            <Film class="w-4 h-4 me-1" />
             {{ t('matches.actions.highlights') }}
           </button>
           <NuxtLink :to="localePath(`/matches/${result.id}?tab=summary`)" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-button !rounded-button text-sm whitespace-nowrap transition-colors flex items-center">
-            <FileText class="w-4 h-4 mr-1" />
+            <FileText class="w-4 h-4 me-1" />
             {{ t('matches.actions.matchReport') }}
           </NuxtLink>
         </div>

@@ -13,30 +13,54 @@ const route = useRoute();
 const articleId = computed(() => route.params.id as string);
 
 const allNewsItems = ref([
-  { id: 1, category: 'firstteam', titleKey: 'news.sample1.title', date: '2024-07-28' },
-  { id: 2, category: 'academy', titleKey: 'news.sample2.title', date: '2024-07-27' },
-  { id: 3, category: 'clubnews', titleKey: 'news.sample3.title', date: '2024-07-26' },
-  { id: 4, category: 'firstteam', titleKey: 'news.sample4.title', date: '2024-07-25' },
-  { id: 5, category: 'transfers', titleKey: 'news.sample5.title', date: '2024-07-24' },
-  { id: 6, category: 'firstteam', titleKey: 'news.sample6.title', date: '2024-07-23' },
+  { id: 1, category: 'firstteam', titleKey: 'news.sample1.title', date: '2025-04-20', image: '/club-images/al_olympic_sc_team_training_session_stadium_view.jpg', summaryKey: 'news.sample1.summary' },
+  { id: 2, category: 'transfers', titleKey: 'news.sample2.title', date: '2025-04-19', image: '/club-images/al_olympic_sc_officials_associates_meeting_indoor.jpg', summaryKey: 'news.sample2.summary' },
+  { id: 3, category: 'clubnews', titleKey: 'news.sample3.title', date: '2025-04-15', image: '/club-images/al_olympic_sc_2024_2025_squad_photo.jpg', summaryKey: 'news.sample3.summary' },
+  { id: 4, category: 'firstteam', titleKey: 'news.sample4.title', date: '2025-04-14', image: '/club-images/al_olympic_sc_players_running_drill_training.jpg', summaryKey: 'news.sample4.summary' },
+  { id: 5, category: 'clubnews', titleKey: 'news.sample5.title', date: '2025-04-12', image: '/club-images/supporter_al_olympic_sc_fino_alla_morte_scarf.jpg', summaryKey: 'news.sample5.summary' },
+  { id: 6, category: 'firstteam', titleKey: 'news.sample6.title', date: '2025-04-10', image: '/club-images/al_olympic_sc_player_portrait_1_blue_jacket.jpg', summaryKey: 'news.sample6.summary' },
+  { id: 7, category: 'clubnews', titleKey: 'news.sample3.title', date: '2025-04-08', image: '/club-images/al_olympic_sc_associate_official_portrait_dark_shirt.jpg', summaryKey: 'news.sample3.summary' },
+  { id: 8, category: 'transfers', titleKey: 'news.sample5.title', date: '2025-04-06', image: '/club-images/two_al_olympic_sc_players_seated_indoors.jpg', summaryKey: 'news.sample5.summary' },
+  { id: 9, category: 'clubnews', titleKey: 'news.sample1.title', date: '2025-04-03', image: '/club-images/al_olympic_sc_team_huddle_rain_training.jpg', summaryKey: 'news.sample1.summary' },
 ]);
 
 const { data: article, pending, error } = useAsyncData(
   `news-article-id-${articleId.value}`,
   async () => {
-    await new Promise(resolve => setTimeout(resolve, 50));
+    console.log(`[SSR] Fetching article for ID: ${articleId.value}`); // Add logging
+    await new Promise(resolve => setTimeout(resolve, 50)); // Simulate delay
 
     const numericId = parseInt(articleId.value, 10);
     if (isNaN(numericId)) {
+      console.error(`[SSR] Invalid Article ID: ${articleId.value}`);
       throw createError({ statusCode: 400, statusMessage: 'Invalid Article ID', fatal: true });
     }
 
     const baseData = allNewsItems.value.find(item => item.id === numericId);
+    console.log(`[SSR] Found baseData:`, baseData ? baseData.id : 'Not Found'); // Log found data
 
     if (!baseData) {
+      console.error(`[SSR] Article Not Found for ID: ${numericId}`);
       throw createError({ statusCode: 404, statusMessage: 'Article Not Found', fatal: true });
     }
 
+    // --- TEMPORARY SIMPLIFICATION ---
+    // Return only essential data first to test
+    const simplifiedData = {
+        id: baseData.id,
+        titleKey: baseData.titleKey,
+        image: baseData.image,
+        date: baseData.date,
+        category: baseData.category,
+        author: 'Al-Olympi Media Team', // Keep author static for now
+        // Omit content structure for now
+        content: [{ type: 'paragraph', textKey: 'news.article.placeholder.intro' }] // Minimal content
+    };
+    console.log('[SSR] Returning simplified data');
+    return simplifiedData;
+    // --- END TEMPORARY SIMPLIFICATION ---
+
+    /* --- ORIGINAL LOGIC (Commented out for testing) ---
     let contentStructure = [];
     const placeholderBaseKey = 'news.article.placeholder.';
     contentStructure.push({ type: 'paragraph', textKey: placeholderBaseKey + 'intro' });
@@ -51,54 +75,68 @@ const { data: article, pending, error } = useAsyncData(
     } else if (numericId % 3 === 1) {
          contentStructure.push({ type: 'heading', level: 2, textKey: placeholderBaseKey + 'h2_tactics' });
          contentStructure.push({ type: 'paragraph', textKey: placeholderBaseKey + 'p_tactics' });
-         contentStructure.push({ type: 'image', src: `https://via.placeholder.com/1200x800/${Math.random().toString(16).substr(-6)}/ffffff?text=Action+Shot+${numericId}`, altKey: placeholderBaseKey + 'imageAlt', captionKey: placeholderBaseKey + 'imageCaption' });
+         contentStructure.push({ type: 'image', src: '/club-images/al_olympic_sc_players_running_drill_training.jpg', altKey: placeholderBaseKey + 'imageAlt', captionKey: placeholderBaseKey + 'imageCaption' });
          contentStructure.push({ type: 'blockquote', textKey: placeholderBaseKey + 'quote_manager' });
 
     } else {
          contentStructure.push({ type: 'heading', level: 2, textKey: placeholderBaseKey + 'h2_tactics' });
          contentStructure.push({ type: 'paragraph', textKey: placeholderBaseKey + 'p_key_moments' });
-         contentStructure.push({ type: 'image', src: `https://via.placeholder.com/1200x800/${Math.random().toString(16).substr(-6)}/ffffff?text=Team+Moment+${numericId}`, altKey: placeholderBaseKey + 'imageAlt'}); // No caption example
+         contentStructure.push({ type: 'image', src: '/club-images/two_al_olympic_sc_teammates_posing_rain_training.jpg', altKey: placeholderBaseKey + 'imageAlt'}); // No caption example
          contentStructure.push({ type: 'heading', level: 3, textKey: placeholderBaseKey + 'list_title' });
          contentStructure.push({ type: 'list', items: [placeholderBaseKey + 'listItem1', placeholderBaseKey + 'listItem2'] });
     }
     contentStructure.push({ type: 'paragraph', textKey: placeholderBaseKey + 'conclusion' });
 
+    // In the useAsyncData section, update the image source:
     const fullArticleData = {
-      id: baseData.id,
-      category: baseData.category || 'UNCATEGORIZED',
-      titleKey: baseData.titleKey || 'news.default.title',
-      date: baseData.date || 'YYYY-MM-DD',
-      author: 'Al-Olympi Media Team',
-      image: `https://via.placeholder.com/1920x1080/${Math.random().toString(16).substr(-6)}/ffffff?text=Article+${baseData.id}+Hero`,
-      content: contentStructure,
+        id: baseData.id,
+        category: baseData.category || 'UNCATEGORIZED',
+        titleKey: baseData.titleKey || 'news.default.title',
+        date: baseData.date || 'YYYY-MM-DD',
+        author: 'Al-Olympi Media Team',
+        image: baseData.image,  // Use the article's actual image
+        content: contentStructure,
     };
+    console.log('[SSR] Returning full data'); // Add logging
     return fullArticleData;
+    --- END ORIGINAL LOGIC --- */
   },
   { watch: [articleId] }
 );
 
 const relatedArticles = computed(() => {
-    if (!article.value) return [];
+    // Ensure article.value exists and is not pending/error before proceeding
+    if (pending.value || error.value || !article.value) return [];
     const numericId = parseInt(articleId.value, 10);
+    // Also check if numericId is valid
+    if (isNaN(numericId)) return [];
+
     return allNewsItems.value
         .filter(a => a.id !== numericId)
         .slice(0, 3)
-        .map(a => ({
+        .map((a, index) => ({
             ...a,
-            image: `https://via.placeholder.com/600x400/${Math.random().toString(16).substr(-6)}/ffffff?text=Related+${a.id}`
+            image: ['/club-images/al_olympic_sc_player_portrait_1_blue_jacket.jpg',
+                   '/club-images/al_olympic_sc_player_portrait_black_2_blue_jacket.jpg',
+                   '/club-images/al_olympic_sc_players_18_19_celebrating_training.jpg'][index % 3]
         }));
 });
 
 const categoryTranslationKey = computed(() => {
+  // Add explicit check for article.value before accessing category
   if (pending.value || error.value || !article.value || !article.value.category) {
-      return 'news.categories.uncategorized';
+      return 'news.categories.uncategorized'; // Return default key safely
   }
   const categoryKey = article.value.category.toLowerCase().replace(/[^a-z0-9]/gi, '');
   return `news.categories.${categoryKey}`;
 });
 
 const pageTitle = computed(() => {
-    if (pending.value || error.value || !article.value) return t('clubName');
+    // Ensure article and titleKey exist before trying to translate
+    if (pending.value || error.value || !article.value || !article.value.titleKey) {
+        return t('clubName'); // Default title
+    }
+    // Safely access titleKey only if article is loaded
     return t(article.value.titleKey) + " | " + t('clubName');
 });
 
@@ -111,7 +149,13 @@ onMounted(() => {
   pageUrl.value = window.location.href;
 });
 
-const shareTitle = computed(() => article.value ? t(article.value.titleKey) : t('clubName'));
+const shareTitle = computed(() => {
+    // Similar safety check for shareTitle
+    if (pending.value || error.value || !article.value || !article.value.titleKey) {
+        return t('clubName');
+    }
+    return t(article.value.titleKey);
+});
 
 const shareLinks = computed(() => {
   if (!pageUrl.value) return [];
@@ -238,12 +282,12 @@ const getCategoryTagClass = (categoryKey: string | undefined) => {
                 <template v-for="link in shareLinks" :key="link.name">
                    <a v-if="link.url" :href="link.url" target="_blank" rel="noopener noreferrer"
                      :aria-label="`Share on ${link.name}`"
-                     class="text-gray-400 hover:text-accent-yellow hover:scale-110 transition-all duration-200 flex items-center space-x-1 rtl:space-x-reverse">
+                     class="text-gray-400 hover:text-accent-yellow hover:scale-110 transition-all duration-200 flex items-center space-x-1 rtl:space-x-reverse rtl:space-x-reverse">
                     <component :is="link.icon" class="w-5 h-5 md:w-6 md:h-6" />
                    </a>
                    <button v-else-if="link.action" @click="link.action"
                       :aria-label="`${link.name}`"
-                      class="text-gray-400 hover:text-accent-yellow hover:scale-110 transition-all duration-200 flex items-center space-x-1 rtl:space-x-reverse">
+                      class="text-gray-400 hover:text-accent-yellow hover:scale-110 transition-all duration-200 flex items-center space-x-1 rtl:space-x-reverse rtl:space-x-reverse">
                       <component :is="link.icon" class="w-5 h-5 md:w-6 md:h-6" />
                    </button>
                 </template>

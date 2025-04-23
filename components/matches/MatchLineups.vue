@@ -22,14 +22,14 @@ defineProps<{ lineups: LineupData | null | undefined }>();
         <ul class="space-y-2 text-gray-300">
           <li v-for="(player, index) in lineups.home.starting" :key="`home-start-${index}`" class="flex items-center">
             <!-- Extract number if present, e.g., "1. GK Name" -->
-            <span class="w-6 text-right mr-3 text-gray-400">{{ player.split('.')[0] }}.</span>
+            <span class="w-6 text-end me-3 text-gray-400">{{ player.split('.')[0] }}.</span>
             <span>{{ player.split('.').slice(1).join('.').trim() }}</span>
           </li>
         </ul>
         <h5 class="text-md font-medium mt-6 mb-3 text-gray-200">{{ t('matches.lineups.substitutes') }}</h5>
         <ul class="space-y-1 text-gray-400 text-sm">
           <li v-for="(player, index) in lineups.home.subs" :key="`home-sub-${index}`" class="flex items-center">
-            <span class="w-6 text-right mr-3">{{ player.split('.')[0] }}.</span>
+            <span class="w-6 text-end me-3">{{ player.split('.')[0] }}.</span>
             <span>{{ player.split('.').slice(1).join('.').trim() }}</span>
           </li>
         </ul>
@@ -40,14 +40,14 @@ defineProps<{ lineups: LineupData | null | undefined }>();
         <h4 class="text-lg font-medium mb-4 text-white border-b border-gray-700 pb-2">{{ t('matches.location.away') }} {{ t('matches.lineups.startingXI') }}</h4>
         <ul class="space-y-2 text-gray-300">
           <li v-for="(player, index) in lineups.away.starting" :key="`away-start-${index}`" class="flex items-center">
-            <span class="w-6 text-right mr-3 text-gray-400">{{ player.split('.')[0] }}.</span>
+            <span class="w-6 text-end me-3 text-gray-400">{{ player.split('.')[0] }}.</span>
             <span>{{ player.split('.').slice(1).join('.').trim() }}</span>
           </li>
         </ul>
         <h5 class="text-md font-medium mt-6 mb-3 text-gray-200">{{ t('matches.lineups.substitutes') }}</h5>
         <ul class="space-y-1 text-gray-400 text-sm">
           <li v-for="(player, index) in lineups.away.subs" :key="`away-sub-${index}`" class="flex items-center">
-            <span class="w-6 text-right mr-3">{{ player.split('.')[0] }}.</span>
+            <span class="w-6 text-end me-3">{{ player.split('.')[0] }}.</span>
             <span>{{ player.split('.').slice(1).join('.').trim() }}</span>
           </li>
         </ul>

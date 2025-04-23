@@ -48,11 +48,11 @@ const calculateWidth = (value: number, total: number): string => {
         </div>
         <div class="flex w-full h-2 bg-gray-700 rounded-full overflow-hidden">
           <div
-            class="bg-primary h-full rounded-l-full transition-all duration-500 ease-out"
+            class="bg-primary h-full rounded-s-full transition-all duration-500 ease-out"
             :style="{ width: calculateWidth(item.home, item.home + item.away) }"
           ></div>
           <div
-            class="bg-gray-500 h-full rounded-r-full transition-all duration-500 ease-out"
+            class="bg-gray-500 h-full rounded-e-full transition-all duration-500 ease-out"
             :style="{ width: calculateWidth(item.away, item.home + item.away) }"
           ></div>
         </div>

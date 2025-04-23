@@ -139,7 +139,7 @@ const formatDate = (dateString: string) => {
 
           <!-- Sharing & Actions Bar -->
           <div class="mt-12 pt-8 border-t border-gray-700/50">
-            <div class="flex items-center justify-center space-x-5">
+            <div class="flex items-center justify-center space-x-5 rtl:space-x-reverse">
               <span class="text-sm font-semibold text-gray-400 uppercase tracking-wider me-2">{{ $t('news.article.share') }}:</span>
               <a v-for="link in shareLinks" :key="link.name" :href="link.url" target="_blank" rel="noopener noreferrer" 
                  :aria-label="`Share on ${link.name}`" 

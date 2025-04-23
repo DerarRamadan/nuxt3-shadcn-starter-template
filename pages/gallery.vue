@@ -149,7 +149,7 @@ useHead({ title: `${t('gallery.pageTitle')} | ${t('clubName')}` });
        <section class="bg-gray-900 py-4 border-b border-gray-800 sticky top-[80px] z-40 shadow-md">
         <div class="container mx-auto px-4">
           <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-             <div class="flex items-center space-x-2 rtl:space-x-reverse overflow-x-auto pb-2 md:pb-0 w-full md:w-auto custom-scrollbar">
+             <div class="flex items-center space-x-2 rtl:space-x-reverse rtl:space-x-reverse overflow-x-auto pb-2 md:pb-0 w-full md:w-auto custom-scrollbar">
               <NuxtLink :to="localePath('/team')" class="flex items-center px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 transition-colors whitespace-nowrap text-sm">
                 <span class="me-1 rtl:me-0 rtl:ms-1">←</span>
                 <span>{{ $t('gallery.backToTeam') }}</span>
@@ -168,7 +168,7 @@ useHead({ title: `${t('gallery.pageTitle')} | ${t('clubName')}` });
                 {{ $t(filter.labelKey) }}
               </button>
             </div>
-             <div class="flex items-center space-x-3 rtl:space-x-reverse w-full md:w-auto">
+             <div class="flex items-center space-x-3 rtl:space-x-reverse rtl:space-x-reverse w-full md:w-auto">
                 <div class="relative flex-1 md:w-64">
                   <input v-model="searchInput" type="text" :placeholder="t('gallery.searchPlaceholder')" class="search-input w-full bg-gray-800 text-white px-4 py-2 ps-10 rtl:pe-10 rtl:ps-4 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 border-none text-sm">
                   <div class="search-icon absolute start-3 rtl:start-auto rtl:end-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400 pointer-events-none">
@@ -229,7 +229,7 @@ useHead({ title: `${t('gallery.pageTitle')} | ${t('clubName')}` });
         <div class="container mx-auto px-4">
           <div class="flex items-center justify-between mb-8">
             <h2 class="text-3xl font-bold text-white">{{ $t('gallery.featuredMoments') }}</h2>
-            <div class="flex space-x-2 rtl:space-x-reverse">
+            <div class="flex space-x-2 rtl:space-x-reverse rtl:space-x-reverse">
               <button @click="prevSlide" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-white hover:bg-primary transition-colors" aria-label="Previous Slide">
                  <span><</span>
               </button>
@@ -257,7 +257,7 @@ useHead({ title: `${t('gallery.pageTitle')} | ${t('clubName')}` });
                 </div>
               </div>
             </div>
-             <div class="slider-dots absolute bottom-5 start-0 end-0 flex justify-center space-x-2 rtl:space-x-reverse">
+             <div class="slider-dots absolute bottom-5 start-0 end-0 flex justify-center space-x-2 rtl:space-x-reverse rtl:space-x-reverse">
                  <button v-for="(slide, index) in featuredSliderItems.length" :key="'dot-'+index"
                          @click="goToSlide(index)"
                          class="w-2.5 h-2.5 rounded-full transition-colors duration-300 focus:outline-none"

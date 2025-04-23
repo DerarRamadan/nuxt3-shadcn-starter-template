@@ -25,7 +25,7 @@ const clubNameToHighlight = 'Al-Olympi';
   <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg">
     <h3 class="text-xl font-semibold p-4 border-b border-gray-700">{{ t('matches.standings.title') }}</h3>
     <div class="overflow-x-auto">
-      <table class="w-full min-w-[600px] text-sm text-left text-gray-300">
+      <table class="w-full min-w-[600px] text-sm text-start text-gray-300">
         <thead class="text-xs text-gray-400 uppercase bg-gray-700">
           <tr>
             <th scope="col" class="px-4 py-3 text-center">#</th>

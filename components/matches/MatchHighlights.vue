@@ -41,7 +41,7 @@ defineProps<{
             :alt="highlight.title"
             class="w-full h-full object-cover"
           />
-          <div class="absolute bottom-2 right-2 bg-black bg-opacity-70 px-2 py-1 rounded text-xs text-white">
+          <div class="absolute bottom-2 end-2 bg-black bg-opacity-70 px-2 py-1 rounded text-xs text-white">
             {{ highlight.duration }}
           </div>
         </div>

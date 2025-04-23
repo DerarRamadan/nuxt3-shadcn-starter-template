@@ -21,7 +21,7 @@ const selectTab = (tabKey: string) => {
 
 <template>
   <div class="border-b border-gray-700 mb-8">
-    <nav class="-mb-px flex space-x-6 overflow-x-auto px-1" aria-label="Tabs">
+    <nav class="-mb-px flex space-x-6 rtl:space-x-reverse overflow-x-auto px-1" aria-label="Tabs">
       <button
         v-for="tab in tabs"
         :key="tab.key"

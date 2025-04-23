@@ -117,7 +117,7 @@ function setActiveTab(tabName: string) {
                            </div>
                        </div>
 
-                      <div class="flex items-center justify-center md:justify-end space-x-2 rtl:space-x-reverse mt-4 md:mt-0 w-full md:w-auto flex-shrink-0">
+                      <div class="flex items-center justify-center md:justify-end space-x-2 rtl:space-x-reverse rtl:space-x-reverse mt-4 md:mt-0 w-full md:w-auto flex-shrink-0">
                          <button v-if="match.ticketsAvailable" class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-3 rounded-lg text-xs uppercase tracking-wider transition-colors flex items-center">
                            <TicketLine class="w-4 h-4 me-1 rtl:me-0 rtl:ms-1"/>
                           {{ $t('matches.buyTickets') }}
@@ -165,7 +165,7 @@ function setActiveTab(tabName: string) {
                            </div>
                        </div>
 
-                      <div class="flex items-center justify-center md:justify-end space-x-2 rtl:space-x-reverse mt-4 md:mt-0 w-full md:w-auto flex-shrink-0">
+                      <div class="flex items-center justify-center md:justify-end space-x-2 rtl:space-x-reverse rtl:space-x-reverse mt-4 md:mt-0 w-full md:w-auto flex-shrink-0">
                         <button v-if="match.highlightsAvailable" class="bg-accent-orange hover:bg-accent-orange/90 text-white font-bold py-2 px-3 rounded-lg text-xs uppercase tracking-wider transition-colors flex items-center">
                             <VidiconLine class="w-4 h-4 me-1 rtl:me-0 rtl:ms-1"/>
                            {{ $t('matches.highlights') }}

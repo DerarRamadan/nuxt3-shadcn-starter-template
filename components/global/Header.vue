@@ -43,12 +43,12 @@ function handleLocaleSwitch() {
 <template>
   <header class="sticky top-0 z-50 w-full border-b border-gray-700/50 bg-gray-900/80 backdrop-blur-lg">
     <div class="container mx-auto px-4 h-20 flex items-center justify-between">
-      <NuxtLink :to="currentLocalePath('/')" class="flex items-center space-x-3 rtl:space-x-reverse" @click="closeMobileMenu">
+      <NuxtLink :to="currentLocalePath('/')" class="flex items-center space-x-3 rtl:space-x-reverse rtl:space-x-reverse" @click="closeMobileMenu">
         <img src="https://via.placeholder.com/180x50/00439e/ffffff?text=Club+Logo+Modern" alt="Club Logo" class="h-10 md:h-12 w-auto">
         <span class="text-xl font-bold hidden lg:inline text-white font-heading uppercase tracking-tight">{{ $t('clubName') }}</span>
       </NuxtLink>
 
-      <nav class="hidden lg:flex items-center space-x-8 rtl:space-x-reverse">
+      <nav class="hidden lg:flex items-center space-x-8 rtl:space-x-reverse rtl:space-x-reverse">
         <NuxtLink :to="currentLocalePath('/news')" class="text-sm font-medium text-gray-300 hover:text-accent-yellow transition-colors uppercase tracking-wider">{{ $t('header.news') }}</NuxtLink>
         <NuxtLink :to="currentLocalePath('/matches')" class="text-sm font-medium text-gray-300 hover:text-accent-yellow transition-colors uppercase tracking-wider">{{ $t('header.matches') }}</NuxtLink>
         <NuxtLink :to="currentLocalePath('/team')" class="text-sm font-medium text-gray-300 hover:text-accent-yellow transition-colors uppercase tracking-wider">{{ $t('header.team') }}</NuxtLink>
@@ -58,7 +58,7 @@ function handleLocaleSwitch() {
         <NuxtLink :to="currentLocalePath('/contact')" class="text-sm font-medium text-gray-300 hover:text-accent-yellow transition-colors uppercase tracking-wider">{{ $t('header.contact') }}</NuxtLink>
       </nav>
 
-      <div class="flex items-center space-x-4 rtl:space-x-reverse">
+      <div class="flex items-center space-x-4 rtl:space-x-reverse rtl:space-x-reverse">
         <div class="relative">
           <button
             id="language-button"
@@ -131,7 +131,7 @@ function handleLocaleSwitch() {
             <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" aria-hidden="true" @click="closeMobileMenu"></div>
             <div class="fixed inset-y-0 end-0 w-full max-w-xs bg-secondary shadow-lg p-6 z-50 border-s rtl:border-s-0 rtl:border-e border-gray-700">
                 <div class="flex items-center justify-between mb-8">
-                    <NuxtLink :to="currentLocalePath('/')" class="flex items-center space-x-2 rtl:space-x-reverse" @click="closeMobileMenu">
+                    <NuxtLink :to="currentLocalePath('/')" class="flex items-center space-x-2 rtl:space-x-reverse rtl:space-x-reverse" @click="closeMobileMenu">
                          <img src="https://via.placeholder.com/150x40/00439e/ffffff?text=Club+Logo" alt="Club Logo" class="h-8 w-auto">
                     </NuxtLink>
                     <button

@@ -90,7 +90,7 @@ const statusClass = computed(() => {
         </div>
 
         <!-- Competition and Status -->
-        <div class="flex items-center justify-center space-x-4">
+        <div class="flex items-center justify-center space-x-4 rtl:space-x-reverse">
           <span class="text-gray-300 text-sm md:text-base">{{ match.competition }}</span>
           <span :class="['text-white px-3 py-1 rounded-full text-xs md:text-sm font-semibold', statusClass]">
             {{ statusText }}

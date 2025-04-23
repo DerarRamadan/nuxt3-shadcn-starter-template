@@ -21,15 +21,16 @@ const filters = ref([
 
 // Placeholder news data - categories match simplified keys
 const allNewsItems = ref([
-  { id: 1, category: 'firstteam', titleKey: 'news.sample1.title', date: '2025-04-20', image: 'https://readdy.ai/api/search-image?query=professional%2520football%2520team%2520celebrating%2520victory%252C%2520dynamic%2520sports%2520photography%252C%2520energetic%2520moment%252C%2520high-quality%2520stadium%2520lighting%252C%2520team%2520spirit%252C%2520dramatic%2520angle%252C%2520EA%2520Sports%2520FC%2520game%2520interface%2520inspiration%252C%2520no%2520text%2520or%2520UI%2520elements&width=600&height=400&seq=123471&orientation=landscape', summaryKey: 'news.sample1.summary' },
-  { id: 2, category: 'transfers', titleKey: 'news.sample2.title', date: '2025-04-19', image: 'https://readdy.ai/api/search-image?query=football%2520player%2520signing%2520contract%252C%2520professional%2520sports%2520business%2520meeting%252C%2520modern%2520office%2520setting%252C%2520high-quality%2520photography%252C%2520EA%2520Sports%2520FC%2520game%2520interface%2520inspiration%252C%2520no%2520text%2520or%2520UI%2520elements&width=600&height=400&seq=123472&orientation=landscape', summaryKey: 'news.sample2.summary' },
-  { id: 3, category: 'clubnews', titleKey: 'news.sample3.title', date: '2025-04-15', image: 'https://readdy.ai/api/search-image?query=modern%2520football%2520stadium%2520renovation%252C%2520architectural%2520visualization%252C%2520high-quality%2520sports%2520facility%252C%2520dramatic%2520lighting%252C%2520EA%2520Sports%2520FC%2520game%2520interface%2520inspiration%252C%2520no%2520text%2520or%2520UI%2520elements&width=600&height=400&seq=123473&orientation=landscape', summaryKey: 'news.sample3.summary' },
-  { id: 4, category: 'firstteam', titleKey: 'news.sample4.title', date: '2025-04-14', image: 'https://readdy.ai/api/search-image?query=football%2520team%2520training%2520session%252C%2520professional%2520coaching%252C%2520dynamic%2520sports%2520photography%252C%2520high-quality%2520training%2520ground%252C%2520EA%2520Sports%2520FC%2520game%2520interface%2520inspiration%252C%2520no%2520text%2520or%2520UI%2520elements&width=600&height=400&seq=123474&orientation=landscape', summaryKey: 'news.sample4.summary' },
-  { id: 5, category: 'clubnews', titleKey: 'news.sample5.title', date: '2025-04-12', image: 'https://readdy.ai/api/search-image?query=football%2520youth%2520academy%2520training%252C%2520young%2520players%252C%2520professional%2520coaching%252C%2520dynamic%2520sports%2520photography%252C%2520high-quality%2520training%2520ground%252C%2520EA%2520Sports%2520FC%2520game%2520interface%2520inspiration%252C%2520no%2520text%2520or%2520UI%2520elements&width=600&height=400&seq=123475&orientation=landscape', summaryKey: 'news.sample5.summary' },
-  { id: 6, category: 'firstteam', titleKey: 'news.sample6.title', date: '2025-04-10', image: 'https://readdy.ai/api/search-image?query=football%2520player%2520injury%2520recovery%252C%2520medical%2520staff%252C%2520physiotherapy%2520session%252C%2520professional%2520sports%2520medicine%252C%2520high-quality%2520photography%252C%2520EA%2520Sports%2520FC%2520game%2520interface%2520inspiration%252C%2520no%2520text%2520or%2520UI%2520elements&width=600&height=400&seq=123476&orientation=landscape', summaryKey: 'news.sample6.summary' },
-  { id: 7, category: 'clubnews', titleKey: 'news.sample3.title', date: '2025-04-08', image: 'https://readdy.ai/api/search-image?query=football%2520club%2520community%2520event%252C%2520players%2520meeting%2520fans%252C%2520charity%2520work%252C%2520dynamic%2520photography%252C%2520high-quality%2520lighting%252C%2520EA%2520Sports%2520FC%2520game%2520interface%2520inspiration%252C%2520no%2520text%2520or%2520UI%2520elements&width=600&height=400&seq=123477&orientation=landscape', summaryKey: 'news.sample3.summary' },
-  { id: 8, category: 'transfers', titleKey: 'news.sample5.title', date: '2025-04-06', image: 'https://readdy.ai/api/search-image?query=football%2520transfer%2520rumor%252C%2520player%2520scouting%252C%2520professional%2520sports%2520business%252C%2520dynamic%2520photography%252C%2520high-quality%2520lighting%252C%2520EA%2520Sports%2520FC%2520game%2520interface%2520inspiration%252C%2520no%2520text%2520or%2520UI%2520elements&width=600&height=400&seq=123478&orientation=landscape', summaryKey: 'news.sample5.summary' },
-  { id: 9, category: 'clubnews', titleKey: 'news.sample1.title', date: '2025-04-03', image: 'https://readdy.ai/api/search-image?query=football%2520club%2520merchandise%2520store%252C%2520new%2520kit%2520launch%252C%2520fans%2520shopping%252C%2520dynamic%2520photography%252C%2520high-quality%2520lighting%252C%2520EA%2520Sports%2520FC%2520game%2520interface%2520inspiration%252C%2520no%2520text%2520or%2520UI%2520elements&width=600&height=400&seq=123479&orientation=landscape', summaryKey: 'news.sample1.summary' },
+  // Updated image paths to use local club images
+  { id: 1, category: 'firstteam', titleKey: 'news.sample1.title', date: '2025-04-20', image: '/club-images/al_olympic_sc_team_training_session_stadium_view.jpg', summaryKey: 'news.sample1.summary' },
+  { id: 2, category: 'transfers', titleKey: 'news.sample2.title', date: '2025-04-19', image: '/club-images/al_olympic_sc_officials_associates_meeting_indoor.jpg', summaryKey: 'news.sample2.summary' },
+  { id: 3, category: 'clubnews', titleKey: 'news.sample3.title', date: '2025-04-15', image: '/club-images/al_olympic_sc_2024_2025_squad_photo.jpg', summaryKey: 'news.sample3.summary' },
+  { id: 4, category: 'firstteam', titleKey: 'news.sample4.title', date: '2025-04-14', image: '/club-images/al_olympic_sc_players_running_drill_training.jpg', summaryKey: 'news.sample4.summary' },
+  { id: 5, category: 'clubnews', titleKey: 'news.sample5.title', date: '2025-04-12', image: '/club-images/supporter_al_olympic_sc_fino_alla_morte_scarf.jpg', summaryKey: 'news.sample5.summary' },
+  { id: 6, category: 'firstteam', titleKey: 'news.sample6.title', date: '2025-04-10', image: '/club-images/al_olympic_sc_player_portrait_1_blue_jacket.jpg', summaryKey: 'news.sample6.summary' },
+  { id: 7, category: 'clubnews', titleKey: 'news.sample3.title', date: '2025-04-08', image: '/club-images/al_olympic_sc_associate_official_portrait_dark_shirt.jpg', summaryKey: 'news.sample3.summary' },
+  { id: 8, category: 'transfers', titleKey: 'news.sample5.title', date: '2025-04-06', image: '/club-images/two_al_olympic_sc_players_seated_indoors.jpg', summaryKey: 'news.sample5.summary' },
+  { id: 9, category: 'clubnews', titleKey: 'news.sample1.title', date: '2025-04-03', image: '/club-images/al_olympic_sc_team_huddle_rain_training.jpg', summaryKey: 'news.sample1.summary' },
 ]);
 
 const featuredArticle = computed(() => allNewsItems.value.find(item => item.id === 3) || allNewsItems.value[0]);
@@ -100,7 +101,7 @@ const getCategoryTagClass = (categoryKey: string | undefined) => {
       <section class="sticky top-[80px] z-40 bg-black/80 backdrop-blur-sm py-4">
         <div class="container mx-auto px-6">
           <div class="flex flex-col md:flex-row justify-between items-center gap-6 rounded-xl p-4 bg-gray-900/50 border border-gray-700">
-            <div class="flex items-center space-x-2 rtl:space-x-reverse overflow-x-auto w-full md:w-auto px-2 py-1">
+            <div class="flex items-center space-x-2 rtl:space-x-reverse rtl:space-x-reverse overflow-x-auto w-full md:w-auto px-2 py-1">
               <button
                 v-for="filter in filters"
                 :key="filter.key"
@@ -172,7 +173,7 @@ const getCategoryTagClass = (categoryKey: string | undefined) => {
               </div>
                <!-- Pagination -->
               <div v-if="totalPages > 1" class="mt-10 flex justify-center">
-                 <nav class="flex items-center space-x-2 rtl:space-x-reverse">
+                 <nav class="flex items-center space-x-2 rtl:space-x-reverse rtl:space-x-reverse">
                    <button
                     @click="changePage(currentPage - 1)"
                     :disabled="currentPage === 1"

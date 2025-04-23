@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
-import GlobalHeader from '~/components/global/Header.vue';
-import GlobalFooter from '~/components/global/Footer.vue';
+
 import NewsArticleCard from '~/components/news/NewsArticleCard.vue';
 import { useI18n, useLocalePath } from '#imports';
 import { Facebook, Twitter, Linkedin, Mail, Link } from 'lucide-vue-next'; // Example icons

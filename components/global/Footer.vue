@@ -13,7 +13,7 @@ const currentYear = new Date().getFullYear();
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-12">
         <div class="lg:col-span-2">
             <NuxtLink :to="localePath('/')" class="inline-block mb-4">
-                <img src="https://via.placeholder.com/200x60/00439e/ffffff?text=Club+Logo+Footer" alt="Club Logo" class="h-12 w-auto">
+                <img src="/al_olympic_sc_logo.png" alt="Al-Olympic SC Logo" class="h-12 w-auto">
             </NuxtLink>
             <p class="text-sm pe-4 rtl:pe-0 rtl:ps-4">{{ t('clubName') }} - {{ t('home.hero.subtitle') }}</p>
         </div>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import GlobalHeader from '~/components/global/Header.vue';
-import GlobalFooter from '~/components/global/Footer.vue';
+
 import { useI18n, useLocalePath, useHead } from '#imports';
 
 const { t } = useI18n();
@@ -87,30 +86,32 @@ useHead({
     <GlobalHeader />
 
     <main class="flex-grow">
-      <section class="bg-gray-900 py-4 border-b border-gray-800 sticky top-[80px] z-40 shadow-md">
-        <div class="container mx-auto px-4">
-          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center space-x-2 rtl:space-x-reverse rtl:space-x-reverse overflow-x-auto pb-2 md:pb-0 w-full md:w-auto custom-scrollbar">
-              <NuxtLink :to="localePath('/matches')" class="flex items-center px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 transition-colors whitespace-nowrap text-sm">
+      <!-- Team Filter Bar - Styled like News -->
+      <section class="sticky top-[80px] z-40 bg-black/80 backdrop-blur-sm py-4">
+        <div class="container mx-auto px-6">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-6 rounded-xl p-4 bg-gray-900/50 border border-gray-700">
+            <div class="flex items-center space-x-2 rtl:space-x-reverse rtl:space-x-reverse overflow-x-auto w-full md:w-auto px-2 py-1">
+              <!-- Back to Matches Link (Optional, styled differently if kept) -->
+              <!-- <NuxtLink :to="localePath('/matches')" class="flex items-center px-3 py-1.5 rounded-full bg-gray-700 text-gray-300 hover:bg-gray-600 transition-colors whitespace-nowrap text-xs">
                 <span class="me-1 rtl:me-0 rtl:ms-1">←</span>
                 <span>{{ $t('team.backToMatches') }}</span>
-              </NuxtLink>
+              </NuxtLink> -->
               <button
                 v-for="filter in filters"
                 :key="filter.key"
                 @click="setActiveFilter(filter.key)"
                 :class="[
-                  'px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wider transition-all duration-200 ease-in-out whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 focus-visible:ring-primary',
+                  'px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wider transition-all duration-200 ease-in-out whitespace-nowrap focus:outline-none',
                   activeFilter === filter.key
-                    ? 'bg-primary text-white shadow-md scale-105'
-                    : 'bg-gray-800 text-gray-300 hover:bg-primary/80 hover:text-white'
+                    ? 'bg-primary text-white'
+                    : 'bg-gray-800/60 text-gray-300 hover:text-white hover:bg-gray-800'
                 ]"
               >
                 {{ $t(filter.labelKey) }}
               </button>
             </div>
             <div class="relative w-full md:w-64">
-              <input type="text" :placeholder="t('team.searchPlayers')" class="search-input w-full bg-gray-800 text-white px-4 py-2 ps-10 rtl:pe-10 rtl:ps-4 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 border-none text-sm">
+              <input type="text" :placeholder="t('team.searchPlayers')" class="search-input w-full bg-gray-800/60 text-white px-4 py-2 ps-10 rtl:pe-10 rtl:ps-4 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 border border-gray-700 text-sm placeholder-gray-400">
               <div class="search-icon absolute start-3 rtl:start-auto rtl:end-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400 pointer-events-none">
                 <span class="text-lg">🔍</span>
               </div>

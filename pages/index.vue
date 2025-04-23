@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
-import GlobalHeader from '~/components/global/Header.vue';
-import GlobalFooter from '~/components/global/Footer.vue';
+
 import NewsArticleCard from '~/components/news/NewsArticleCard.vue'; // Reuse the news card
 import { useI18n, useLocalePath } from '#imports';
 
@@ -59,7 +58,7 @@ const clubFoundationYear = 1947;
 
 <template>
   <div class="bg-black text-gray-100">
-    <GlobalHeader />
+
 
     <main>
       <section class="relative min-h-[80vh] md:min-h-screen flex items-center justify-center text-center overflow-hidden">
@@ -255,7 +254,7 @@ const clubFoundationYear = 1947;
       </section>
     </main>
 
-    <GlobalFooter />
+
   </div>
 </template>
 

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
-import GlobalHeader from '~/components/global/Header.vue';
-import GlobalFooter from '~/components/global/Footer.vue';
+
 import { useI18n, useLocalePath, useHead } from '#imports';
 import { ArrowLeftLine, ArrowRightSLine, ArrowLeftSLine, SearchLine, GridFill, ListCheck, ImageFill, FolderFill, RefreshLine, ArrowDownLine, ZoomInLine, CloseLine, DownloadLine, ShareLine, ArrowUpLine, CalendarLine, ArrowRightLine } from 'lucide-vue-next'; // Adjusted imports
 
@@ -146,11 +145,11 @@ useHead({ title: `${t('gallery.pageTitle')} | ${t('clubName')}` });
     <GlobalHeader />
 
     <main class="flex-grow">
-       <section class="bg-gray-900 py-4 border-b border-gray-800 sticky top-[80px] z-40 shadow-md">
-        <div class="container mx-auto px-4">
-          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-             <div class="flex items-center space-x-2 rtl:space-x-reverse rtl:space-x-reverse overflow-x-auto pb-2 md:pb-0 w-full md:w-auto custom-scrollbar">
-              <NuxtLink :to="localePath('/team')" class="flex items-center px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 transition-colors whitespace-nowrap text-sm">
+      <section class="sticky top-[80px] z-40 bg-black/80 backdrop-blur-sm py-4">
+        <div class="container mx-auto px-6">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-6 rounded-xl p-4 bg-gray-900/50 border border-gray-700">
+            <div class="flex items-center space-x-2 rtl:space-x-reverse rtl:space-x-reverse overflow-x-auto w-full md:w-auto px-2 py-1">
+              <NuxtLink :to="localePath('/team')" class="flex items-center px-4 py-2 rounded-full bg-gray-800/60 text-white hover:bg-gray-700 transition-colors whitespace-nowrap text-sm">
                 <span class="me-1 rtl:me-0 rtl:ms-1">←</span>
                 <span>{{ $t('gallery.backToTeam') }}</span>
               </NuxtLink>

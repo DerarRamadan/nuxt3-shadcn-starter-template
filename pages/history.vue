@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import GlobalHeader from '~/components/global/Header.vue';
-import GlobalFooter from '~/components/global/Footer.vue';
+
 import { useI18n, useLocalePath, useHead } from '#imports';
 import { Trophy, Users, Award } from 'lucide-vue-next'; // Example icons
 

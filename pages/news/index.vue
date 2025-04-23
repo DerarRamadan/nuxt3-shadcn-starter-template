@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import GlobalHeader from '~/components/global/Header.vue';
-import GlobalFooter from '~/components/global/Footer.vue';
+
 import NewsArticleCard from '~/components/news/NewsArticleCard.vue';
 import { useI18n, useLocalePath } from '#imports';
 import { ArrowRight } from 'lucide-vue-next'; // Import used icon

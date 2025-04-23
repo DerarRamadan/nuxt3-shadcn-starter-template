@@ -44,7 +44,7 @@ function handleLocaleSwitch() {
   <header class="sticky top-0 z-50 w-full border-b border-gray-700/50 bg-gray-900/80 backdrop-blur-lg">
     <div class="container mx-auto px-4 h-20 flex items-center justify-between">
       <NuxtLink :to="currentLocalePath('/')" class="flex items-center space-x-3 rtl:space-x-reverse rtl:space-x-reverse" @click="closeMobileMenu">
-        <img src="https://via.placeholder.com/180x50/00439e/ffffff?text=Club+Logo+Modern" alt="Club Logo" class="h-10 md:h-12 w-auto">
+        <img src="/al_olympic_sc_logo.png" alt="Al-Olympic SC Logo" class="h-10 md:h-12 w-auto">
         <span class="text-xl font-bold hidden lg:inline text-white font-heading uppercase tracking-tight">{{ $t('clubName') }}</span>
       </NuxtLink>
 

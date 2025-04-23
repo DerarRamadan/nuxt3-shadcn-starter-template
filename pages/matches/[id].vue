@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-import GlobalHeader from '~/components/global/Header.vue';
-import GlobalFooter from '~/components/global/Footer.vue';
+
 import { useI18n, useLocalePath, useAsyncData, createError, useHead } from '#imports';
 import { ChevronLeft, MapPinLine, CalendarLine, TimeLine, TicketLine, VidiconLine, InformationLine, BarChart2 } from 'lucide-vue-next'; // Import used icons
 
